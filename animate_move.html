@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        body{overflow: hidden;}
+        .o{position:absolute;top:50px;left:50px;width:100px;height:100px;background:red;}
+    </style>
+</head>
+<body>
+    
+    <div class="o"></div>
+    <script src="jquery.js"></script>
+    <script>
+    (function($){
+        //全局变量
+        //要移动的步数
+        var x_step = 1;
+        var y_step = 1;
+        //最大位置
+        var max_x, max_y;
+
+        //移动元素
+        function move($s, x, y){
+            $s.animate({
+                left:x + 'px',
+                top: y + 'px',
+            },0)
+        }
+
+        //主逻辑
+        function loop($s){
+            //获取元素当前位置
+            var curr_x = $s.offset().left;
+            var curr_y = $s.offset().top;
+
+            var x=curr_x, y=curr_y;
+
+            //屏幕最左
+            if(curr_x <0 ){
+                x_step = 1;
+            }
+            //屏幕最右
+            if(curr_x > max_x){
+                x_step = -1;
+            }
+            //屏幕最上
+            if(curr_y < 0){
+                y_step = 1;
+            }
+            //屏幕最下
+            if(curr_y >= max_y){
+                y_step = -1;
+            }
+            //计算下一步移动的距离
+            x = curr_x + x_step;
+            y = curr_y + y_step;
+
+            move($s, x, y);
+        }
+
+        //入口函数
+        function run(){
+            var $s = $('.o');
+            //获取最大能移动的位置
+            max_x = $(window).innerWidth() - $s.width();
+            max_y = $(window).innerHeight() - $s.height();
+
+            //定时器
+            var interval = setInterval(function(){
+                loop($s)
+            }, 60/1000);
+        }
+
+
+        $(function(){
+            run();
+        });
+    })(jQuery)
+    </script>
+
+</body>
+</html>
