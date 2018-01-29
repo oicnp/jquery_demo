@@ -1,0 +1,29 @@
+<html>
+    <body>
+        
+        <script type = "text/javascript">
+        //闭包防止全局命名污染
+        (function(){
+            //定义一个main函数
+            function main(){
+
+                //用for循环打印1-10的偶数数组
+                var arr = []
+                //循环1-10如果是偶数，保存到数组中
+                for (var i=1;i<=10;i++){
+
+                    if(0==i%2){
+                        arr.push(i)
+                    //控制台输出信息
+                    
+                    }
+                  
+                }
+                console.log (arr)
+            }
+            main()
+
+        })()
+        </script>
+    </body>
+</html>
