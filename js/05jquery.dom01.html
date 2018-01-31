@@ -1,0 +1,61 @@
+<! DCOTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+    
+        <div class="content"></div>
+
+
+
+
+        <script src="../jquery.js">
+        </script>
+        <script type="text/javascript">
+        //闭包防止全局命名污染
+        (function(){
+            /*
+            定义数组a，包含元素：首页，个人简介，企业资讯，企业产品，关于我们
+            循环数组，生成无序列表添加到body
+
+            */
+            //定义一个函数
+            function main(){
+                //定义数组a
+                var a = [ "首页" ,"个人简介","企业资讯","企业产品","关于我们"];
+                //无序列表生成先创建ul dom对象，再循环遍历中生成li dom对象插入到ul节点中
+                //最后把ul插入到body
+                //循环数组
+
+                //创建ul dom对象，$ dom对象命名规则:$变量=$("标签")
+                var $ul=$('<ul>')
+                var i;
+
+                for (i in a){
+                    //创建li dom对象，内容为数组元素
+                    var $li=$("<li>" +a[i]+ "</li>")
+                    //li插入到ul后面
+                    $ul.append($li)
+                    //document.write( a[i] + "</br>")
+
+                }
+                //把ul插入到body最后
+                $("body").append($ul)
+                //练习：创建dom节点h1，内容是：dom对象创建，插入操作
+                //h1插入到body最前面
+                var $h=("<h1>dom对象创建，插入操作</h1>")
+            
+                $("body").prepend($h)
+                //练习：创建h2，内容：使用text方法设置内容，插入h1后面
+
+                var $h2=$("<h2>")
+                $h2.text("使用text方法设置内容，插入h1后面")
+                $h2.appendTo(".content")
+            }
+            main()
+        })()
+        </script>
+
+    </body>
+</html>
