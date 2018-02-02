@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        .ipt_num{padding:10px;font-size:16px;}
+        .max_width{width:80%;margin:0 auto;text-align: center;}
+        ul{list-style: none;}
+        .container{text-align: left;margin:30px auto 0 auto;}
+        body{overflow:hidden;}
+    </style>
+</head>
+<body>
+    <div class="max_width">
+        <div>
+            <input type="number" class="ipt_num" value="5">
+            <button class="btn_generate">Generate</button>
+        </div>
+        <div class="container"></div>
+    </div>
+    
+
+    <script src="../jquery.js"></script>
+    <script>
+    /*------------
+    *
+   ***
+  *****
+ *******
+*********
+
+
+    1 4 1
+    2 3 3
+    3 2 5
+    4 1 7
+    5 0 9
+
+    -------------*/
+    
+    (function(){
+        
+        function generate(){
+            var $ul = $("<ul>");
+            var n = parseInt($('.ipt_num').val());
+            $('.container').append($ul).css({
+                width: (2*n)*15 + "px"
+            })
+            
+            for(var i=0; i<n; i++){
+                var $li = $("<li>");
+                var color = generate_color(i)
+                var dir = get_direction();
+                
+                var blank_css = {
+                    position:'relative',
+                    display:'inline-block',
+                    width:'15px',
+                    height: '15px',
+                };
+                var star_css = {
+                    position:'relative',
+                    display:'inline-block',
+                    width:'15px',
+                    height: '15px',
+                }
+
+                star_css['background'] = color
+                star_css[dir] = '-2400px'
+
+                var ani_css = {}
+                ani_css[dir] = 0
+
+                for(var j=i; j<n; j++){
+                    var $blank = $("<span>")
+                        .addClass('blank')
+                        .css(blank_css)
+                    $li.append($blank)
+                }
+                for(var k=0; k<2*i+1; k++){
+                    var $star = $('<span>')
+                        .addClass('star')
+                        .css(star_css)
+                        .animate(ani_css, (i+1)*100)
+                    $li.append($star)
+                }
+                $ul.append($li)
+            }
+            
+        }
+
+        function get_direction(){
+            var dir = Math.floor(Math.random()*4);
+            var arr = {
+                0: 'top',
+                1: 'right',
+                2: 'bottom',
+                3: 'left',
+            }
+            return arr[dir]
+        }
+
+        function rand(n){
+            return Math.floor(Math.random() *n)
+        }
+        function tostring(num){
+            if(Number(num)>=16){
+                return num.toString(16)
+            }
+            return '0' + num.toString(16)
+        }
+
+        function generate_color(i){
+            var step = 10;
+
+            var r = rand(255)
+            var g = rand(255)
+            var b = rand(255)
+
+            var color = tostring(r) + tostring(g) + tostring(b)
+            return '#' + color
+        }
+        
+        function main(){
+            $('ul').remove();
+            generate()
+        }
+
+        $(".btn_generate").on({
+            click: function(){
+                main()
+            }
+        })
+        $('.ipt_num').on('mouseup', function(){
+            main()
+        })
+        main();
+    })(jQuery)
+    </script>
+</body>
+</html>
+
+
+
