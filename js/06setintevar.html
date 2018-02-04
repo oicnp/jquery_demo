@@ -1,0 +1,58 @@
+<!  DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+        .time {
+            width:400px;
+            height:300px;
+            background: #ccc;
+
+
+        }
+        </style>
+    </head>
+    <body>
+        <div class="time">
+
+    
+        </div>
+        <script src="../jquery.js"></script>
+        <script>
+            (function(){
+                //TODO:定义颜色数组，每次时间间隔替换为数组下一个颜色
+                var color="red"
+
+
+
+
+                //将局部变量转化为全局变量
+                window.run=function(){
+                    if (color=="red"){
+                        color= "green";
+                    }
+                    else{
+                        color="red";
+                    }
+                    $(".time").css("background",color);
+
+                }
+
+
+
+
+                function main(){
+                    //定时器，第一个参数回调调用函数体要执行的功能，第二个参数是间隔时间，单位ms
+                    setInterval(function(){
+                        run()
+                    },1000)
+            
+
+                  
+
+                }
+                main()
+
+            })()
+        </script>
+    </body>
+</html>
