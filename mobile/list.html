@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html{font-size: 100px;}
+        body{font-size:16px;}
+        @media only screen and (min-width: 320px){html {font-size: 42.666667px !important;}}
+        @media only screen and (min-width: 360px){html {font-size: 48px !important;}}
+        @media only screen and (min-width: 375px){html {font-size: 50px !important;}}
+        @media only screen and (min-width: 384px){html {font-size: 51px !important;}}
+        @media only screen and (min-width: 401px){html {font-size: 53px !important;}}
+        @media only screen and (min-width: 412px){html {font-size: 54px !important;}}
+        @media only screen and (min-width: 414px){html {font-size: 55px !important;}}
+        @media only screen and (min-width: 600px){html {font-size: 80px !important;}}
+        @media only screen and (min-width: 640px){html {font-size: 85px !important;}}
+    </style>
+    <style>
+        * {margin:0;padding:0;}
+        .clearfix:after, .clearfix:before {content: " ";display: table;clear:both;}
+        /*hide chrome scroll bar*/
+        ::-webkit-scrollbar{width:0px}
+        body{font-family:"sans-serif", "Microsoft YaHei";}
+        ul{list-style: none;}
+        .page{
+            width:100%;height:100%;position:relative;background:#d1d1d1;
+        }
+        .max_width{
+            max-width:7.5rem;margin:0 auto;
+        }
+        .ulw{
+            position:absolute;top:50%;height:5.6rem;
+            width:80%;margin:-2.8rem auto 0 auto;margin-left:10%;
+            background:white;border-radius: 0.15rem;overflow: hidden;
+        }
+        .tiw{
+            height:0.8rem;line-height:0.8rem;border-bottom:1px solid #e2e1e1;
+        }
+        .tiw h4{
+            margin-left:0.2rem;font-size:20px;color:#333;font-weight: normal;
+        }
+        .ulscroll{
+            height:5.1rem;overflow: scroll;
+        }
+        li{
+            display: block;padding: 0.21rem 0.3rem;
+            border-bottom:1px solid #e2e1e1;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.js"></script>
+</head>
+<body>
+    
+    <div class="page">
+        <div class="max_width">
+            <div class="clearfix"></div>
+            <div class="ulw">
+                <div class="tiw">
+                    <h4>Title ths is title</h4>
+                </div>
+                <div class="ulscroll">
+                    <ul>
+                        <li><span class="tx">item1</span></li>
+                        <li><span class="tx">item2</span></li>
+                        <li><span class="tx">item3</span></li>
+                        <li><span class="tx">item4</span></li>
+                        <li><span class="tx">item5</span></li>
+                        <li><span class="tx">item6</span></li>
+                        <li><span class="tx">item7</span></li>
+                        <li><span class="tx">item8</span></li>
+                        <li><span class="tx">item9</span></li>
+                        <li><span class="tx">item10</span></li>
+                        <li><span class="tx">item11</span></li>
+                        <li><span class="tx">item12</span></li>
+                        <li><span class="tx">item13</span></li>
+                        <li><span class="tx">item14</span></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        (function($){
+            function set_page_height(){
+                $('.page').css({height:window.innerHeight + 'px'})    
+            }
+            $(function(){
+                set_page_height();
+                $(window).on('resize',function(){
+                    set_page_height();
+                })
+            })
+        })(jQuery)
+    </script>
+</body>
+</html>
