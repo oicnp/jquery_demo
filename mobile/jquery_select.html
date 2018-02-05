@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html{font-size: 100px;}
+        body{font-size:16px;}
+        @media only screen and (max-width: 319px){html {font-size: 30px !important;}}
+        @media only screen and (min-width: 320px){html {font-size: 42.666667px !important;}}
+        @media only screen and (min-width: 360px){html {font-size: 48px !important;}}
+        @media only screen and (min-width: 375px){html {font-size: 50px !important;}}
+        @media only screen and (min-width: 384px){html {font-size: 51px !important;}}
+        @media only screen and (min-width: 401px){html {font-size: 53px !important;}}
+        @media only screen and (min-width: 412px){html {font-size: 54px !important;}}
+        @media only screen and (min-width: 414px){html {font-size: 55px !important;}}
+        @media only screen and (min-width: 600px){html {font-size: 80px !important;}}
+        @media only screen and (min-width: 640px){html {font-size: 85px !important;}}
+        @media only screen and (min-width: 750px){html {font-size: 100px !important;}}
+    </style>
+    <style>
+        * {margin:0;padding:0;}
+        .clearfix:after, .clearfix:before {content: " ";display: table;clear:both;}
+        /*hide chrome scroll bar*/
+        ::-webkit-scrollbar{width:0px}
+        body{font-family:"sans-serif", "Microsoft YaHei";}
+        ul{list-style: none;}
+        .page{
+            width:100%;height:100%;
+        }
+        .max_width{
+            max-width:7.5rem;margin:0 auto;position:relative;background:#d1d1d1;
+        }
+        
+        .main_con{margin-top:20px;width:80%;margin-left:10%;background:white;min-height:200px;}
+        .form-group{
+            margin:20px;
+            width:80%;
+            height:30px;
+            line-height:30px;
+        }
+        .form-control{
+            border:1px solid #d1d1d1;
+            padding:10px;width:80%;
+            outline: none;
+        }
+    </style>
+    <!--模拟select样式文件 start-->
+    <style>
+        .dten_select_w{
+            width:100%;
+            font-size:14px;
+            position:relative;
+        }
+        .dten_select_w.hover .ulw{display:block}
+        .dten_select_w .txw{
+            background:white;
+            width:100%;
+            height:45px;
+            line-height:45px;
+            border:1px solid #d1d1d1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .dten_select_w .tx{
+            margin-left:10px;
+        }
+        .dten_select_w.empty .tx{color:rgb(134, 134, 134);}
+        .dten_select_w .drop{
+            width: 0;
+            height: 0;
+            border-top: 8px solid rgb(144, 143, 143);
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            position:absolute;
+            right:10px;
+            top:20px;
+        }
+        .dten_select_w .ulw{
+            position:absolute;
+            top:45px;
+            width:100%;
+            background:white;
+            border-top: 1px solid #d1d1d1;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.4);
+            display: none;
+            z-index: 1000;
+        }
+        .dten_select_w li{
+            display: block;
+            padding: 5px 10px;
+            font-size:14px;
+            color:#555;
+        }
+        .dten_select_w li:hover{background:#d1d1d1;}
+        .dten_select_w li.active{color:white;background:#387ff8;}
+    </style>
+    <!--模拟select样式文件 end-->
+    <script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.js"></script>
+</head>
+<body>
+    
+    <div class="page">
+        <div class="max_width">
+            <div class="clearfix"></div>
+            
+
+            <div class="main_con clearfix">
+
+                <div class="form-group">
+                    <select name="" 
+                        value="3"
+                        placeholder="-请选择12312-"
+                        class="form-control dten_select">
+                        <option value="">-请选择-</option>
+                        <option value="1">选择1</option>
+                        <option value="2">选择2</option>
+                        <option value="3">选择3</option>
+                        <option value="4">选择4</option>
+                        <option value="5">选择5</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <script>
+        ////////////////////// select start
+        !(function(){
+            /*
+            插件使用：
+            1. js
+            2. css
+            3. select dom 添加  dten_select class
+            4. dom ready 调用 全局函数 bind_dten_select()
+
+            * value 属性可以设置默认值
+            * placeholder 设置placeholder
+
+            <select name="" 
+                value="3"
+                class="form-control dten_select">
+                <option value="">-请选择-</option>
+                <option value="1">选择1</option>
+            </select>
+            
+             */
+            //select
+            function DtenSelect($select){
+                this.$select = $select;
+                this.$s;
+                this.$tx;
+                this.$ulw;
+                this.$ul;
+                this.value = '';
+                this.placeholder = '';
+
+                this.init();
+            }
+            DtenSelect.prototype = {
+                init: function(){
+                    this.hide_select();
+                    this.value = this.$select.attr('value')
+                    this.placeholder = this.$select.attr('placeholder');
+
+                    this.generate_dom()
+                    this.bind_events()
+                },
+                hide_select: function(){
+                    this.$select.css({
+                        height:0,padding:0,margin:0,width:0,
+                        border:0,boxShadow:'none'
+                    });
+                },
+                generate_dom: function(){
+                    this.$s = $('<div>').addClass('dten_select_w')
+                        .appendTo(this.$select.parent())
+                    var $txw = $('<div>').addClass("txw").appendTo(this.$s);
+                    this.$tx = $('<div>').addClass("tx").appendTo($txw);
+                    $('<span>').addClass("drop").appendTo($txw);
+                    this.$ulw = $('<div>').addClass('ulw').appendTo(this.$s)
+                    this.$ul = $('<ul>').appendTo(this.$ulw);
+
+                    this.generate_list();
+                },
+                generate_list: function(){
+                    var self = this;
+                    this.$ul.find('li').off('click').remove();
+                    this.$select.find('option').each(function(i, n){
+                        var $cur = $(n);
+                        var val = $cur.attr('value');
+                        var text = $cur.html();
+                        var $li = $('<li>').attr('data-val', val) 
+                            .html(text)
+                            .on('click', function(e){
+                                self.handle_item_click(e, $li)
+                            }).appendTo(self.$ul);
+                        
+                        if(self.value==val){
+                            $li.addClass('active');
+                            self.set_show_text(val, text);
+                        }
+                    })
+                },
+                handle_item_click: function(e, $target){
+                    this.set_show_text($target.data("val"), $target.html())
+                    this.$ul.find('li').removeClass("active");
+                    $target.addClass('active')
+                    this.$s.removeClass('hover');
+                },
+                set_show_text: function(value, text){
+                    this.value = value;
+                    this.$tx.html(text)
+                    this.$select.val(value)
+
+                    if(this.value==''){
+                        this.$s.addClass('empty')
+                        this.$tx.html(this.placeholder)
+                    }else{
+                        this.$s.removeClass('empty')
+                    }
+                },
+                bind_events: function(){
+                    this.$s.on('mousemove', function(){
+                        $(this).addClass('hover')
+                    }).on('mouseout', function(){
+                        $(this).removeClass('hover')
+                    })
+                }
+            }
+            window.bind_dten_select = function(){
+                $('.dten_select').each(function(i, n){
+                    var $select = $(n);
+                    var options = {};
+                    new DtenSelect($select, options);
+                })
+            }
+        })(jQuery)
+        ////////////////////// select end
+
+        !(function($){
+
+            function set_page_height(){
+                $('.max_width').css({height:window.innerHeight + 'px'})    
+            }
+            $(function(){
+                set_page_height();
+                $(window).on('resize',function(){
+                    set_page_height();
+                })
+
+                //select
+                bind_dten_select();
+            })
+        })(jQuery)
+    </script>
+</body>
+</html>
