@@ -8,6 +8,7 @@
     <style>
         html{font-size: 100px;}
         body{font-size:16px;}
+        @media only screen and (min-width: 10px){html {font-size: 30px !important;}}
         @media only screen and (min-width: 320px){html {font-size: 42.666667px !important;}}
         @media only screen and (min-width: 360px){html {font-size: 48px !important;}}
         @media only screen and (min-width: 375px){html {font-size: 50px !important;}}
@@ -17,6 +18,7 @@
         @media only screen and (min-width: 414px){html {font-size: 55px !important;}}
         @media only screen and (min-width: 600px){html {font-size: 80px !important;}}
         @media only screen and (min-width: 640px){html {font-size: 85px !important;}}
+        @media only screen and (min-width: 750px){html {font-size: 100px !important;}}
     </style>
     <style>
         * {margin:0;padding:0;}
@@ -26,10 +28,10 @@
         body{font-family:"sans-serif", "Microsoft YaHei";}
         ul{list-style: none;}
         .page{
-            width:100%;height:100%;position:relative;background:#d1d1d1;
+            width:100%;height:100%;
         }
         .max_width{
-            max-width:7.5rem;margin:0 auto;
+            max-width:7.5rem;margin:0 auto;position:relative;background:#d1d1d1;
         }
         .ulw{
             position:absolute;top:50%;height:5.6rem;
@@ -87,7 +89,7 @@
     <script>
         (function($){
             function set_page_height(){
-                $('.page').css({height:window.innerHeight + 'px'})    
+                $('.max_width').css({height:window.innerHeight + 'px'})    
             }
             $(function(){
                 set_page_height();
