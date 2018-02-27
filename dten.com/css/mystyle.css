@@ -1,3 +1,6 @@
+body {
+    margin: 0;
+}
 .head_top {
     background: green;  
     margin: 0;
@@ -20,4 +23,33 @@ a {
     font-size: 14px; 
     padding: 0 10px;
     line-height: 30px;
+}
+.head_end {
+    background: white;
+    margin: 0;
+    width: 100%;
+}
+.head_end .logo {
+    font-size: 12px;
+    width: 30%; 
+    background:blue;
+    float: left;
+}
+.ul1{
+    width: 40%;
+    background-color: red;
+    font-sixe: 16px;
+    float: left;
+}
+.ul2{
+    width: 30%;
+    background-color: springgreen;
+    font-sixe: 16px;
+    float: right;
+}
+.ul2 .li2{
+    padding: 0 30px 0 30px;
+}
+.head_end .li2{
+    float: left;
 }

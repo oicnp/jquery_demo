@@ -1,0 +1,22 @@
+<! DOCTYPE html>
+<html>
+
+    <body>
+        <script type = "text/javascript">
+        //闭包防止全局污染
+        (function (){
+            //定义函数
+            function main(){
+                //用for打印循环体
+                var x="*";
+                for (var i=0; i<20; i++){
+                    x = x +"*" +"*"+"</br>";
+                    } 
+            console.log (x)
+            }
+            main()
+        })()
+        </script>
+
+    </body>
+</html>
