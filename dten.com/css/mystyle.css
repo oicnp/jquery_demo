@@ -1,6 +1,10 @@
 body {
     margin: 0;
 }
+.max_width{
+    width: 1200px;
+    margin: 0 auto;
+}
 .head_top {
     background: green;  
     margin: 0;
@@ -21,14 +25,10 @@ a {
     text-decoration: none;
     font-family: Arial,Verdana,Sans-serif;
     padding: 0 10px;
-<<<<<<< HEAD
-    line-height: 30px;
-=======
     font-size: 14px; 
     line-height: 48px;
     height: 48px;
     display: block;
->>>>>>> f94fc58e9541582ec9fb005301ae15c3c8934696
 }
 .head_end {
     background: white;
@@ -36,30 +36,6 @@ a {
     width: 100%;
 }
 .head_end .logo {
-<<<<<<< HEAD
-    font-size: 12px;
-    width: 30%; 
-    background:blue;
-    float: left;
-}
-.ul1{
-    width: 40%;
-    background-color: red;
-    font-sixe: 16px;
-    float: left;
-}
-.ul2{
-    width: 30%;
-    background-color: springgreen;
-    font-sixe: 16px;
-    float: right;
-}
-.ul2 .li2{
-    padding: 0 30px 0 30px;
-}
-.head_end .li2{
-    float: left;
-=======
     margin-top: 28px;
     font-size: 12px;
     width: 97px;
@@ -86,8 +62,14 @@ a {
 .head_end .li2 .a{
     display: none;
 }
-.max_width{
-    width: 1200px;
+.sliders  {
+    display: block;
+    width: 1000px;
+    height: 300px;
     margin: 0 auto;
->>>>>>> f94fc58e9541582ec9fb005301ae15c3c8934696
+}
+.sliders img{
+    display: block;
+    width: 1200px;
+    height: 400px
 }

@@ -33,3 +33,21 @@ body,div,ul,li{
     color: #fff;
     background: #000000;
 }
+dl{
+    display: none;
+    border: 1px solid #d1d1d1;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    margin: 0;
+    width: 100%;
+}
+dd{
+    margin: 0;
+}
+dd:hover{
+    background: #d1d1d1;
+}
+#nav ul li:hover dl{
+    display: block;
+}
