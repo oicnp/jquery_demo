@@ -1,0 +1,29 @@
+<! DOCTYPE HTML>
+<html>
+    <head>
+        <script src="jquery.js"></script>
+        <script type="text/javascript">
+        //fadeout()用于淡出可见元素；fadetoggle()用于fadein()和fadeout()切换；
+        $(document).ready(function() {
+          $("button").click(function() {
+            $("#div01").fadeout();
+            $("#div02").fadeout(fast);
+            $("#div02").fadeout(1000);
+          });    
+        });
+        </script>
+    </head>
+    <body>
+        <p>演示带有不同参数的fade Out()方法。</p>
+        <button>点击这里，使三个矩形淡出</button>
+        <br>
+        <div id="div01" style="width:80px;height:80px;background-color:red;">
+        </div>
+        <br>
+        <div id="div02" style="width:80px;height:80px;background-color:green;">
+        </div>
+        <br>
+        <div id="div02" style="width:80px;height:80px;background-color:black;">
+        </div>  
+      </body>
+</html>

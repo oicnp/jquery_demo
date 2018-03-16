@@ -1,6 +1,10 @@
 body {
     margin: 0;
 }
+.max_width{
+    width: 1200px;
+    margin: 0 auto;
+}
 .head_top {
     background: green;  
     margin: 0;
@@ -58,7 +62,17 @@ a {
 .head_end .li2 .a{
     display: none;
 }
-.max_width{
-    width: 1200px;
+.sliders  {
+    display: block;
     margin: 0 auto;
+}
+.sliders img {
+   
+    display: block;
+    width: 1200px;
+    height: 500px;  
+}
+.home_features img{
+    display: block;
+    
 }
