@@ -77,40 +77,38 @@ a {
 }
 /*.home_features下面 包含文字和图片*/
 .home_features{
-    /*position: relative;/*相对定位*/
-
+    background-color: #f7f7f7;
+    position: relative;
+    widows: 1500px;
+    height: 1000px
 }
 
 /*图片部分的设置*/
-.home_features .hr_f img{
-    /*position: static;默认定位，可以省略*/
-    width: 1200px;
+.home_features  img{
+    position: absolute;
+    width: 1000px;
     height: 800px;
-    display: block;
-}
-.home_features img{
     display: inline-block;
-    width: 8.6rem;
-    height: 4.19rem;
+    text-align: center;
+    margin-top: 50px;
 }
 /*文字部分的设置*/
 .home_features .hf_p{
-    /*position: absolute;相对定位*/
+    position: absolute;/*相对定位*/
     color: #3b3b3b;
     font-size: 22px;
-    width: 100%;
     text-align: center;
     top: 30px;
 }
 .home_features .hf_f{
-    /*position: absolute;/*相对定位*/
+    position: absolute;/*相对定位*/
     color: #3b3b3b;
     font-size: .14rem;  
-    left: 50%;
     text-align: left;
 }
 
 .home_features .hf_f .hf f1{
+
     top: .48rem;
     margin-left: -4.24rem;
    
