@@ -79,6 +79,7 @@ a {
 .home_features{
     background-color: #f7f7f7;
     position: relative;
+    text-align: center;
     widows: 1500px;
     height: 1000px
 }
@@ -86,8 +87,8 @@ a {
 /*图片部分的设置*/
 .home_features  img{
     position: absolute;
-    width: 1000px;
-    height: 800px;
+    width: 860px;
+    height: 419px;
     display: inline-block;
     text-align: center;
     margin-top: 50px;
@@ -108,15 +109,13 @@ a {
 }
 
 .home_features .hf_f .hf f1{
-
-    top: .48rem;
-    margin-left: -4.24rem;
-   
+    top: 48px;
+    margin-left: -424px;  
 }
 .home_features .hf_f .hf f2{
-    top:.53rem;
-    margin-left: 2.88rem;
-    width: 3rem;
+    top:.53px;
+    margin-left: 288px;
+    width: 300px;
 }
 .home_features .hf_f .hf f3{
     top: 1.2rem;
