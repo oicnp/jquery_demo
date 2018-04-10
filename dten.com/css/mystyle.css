@@ -72,34 +72,51 @@ a {
     width: 1200px;
     height: 500px;  
 }
+/*设置dten3*/
+.dten3 {
+    padding-top: 15px;
+    text-align: center;
+}
+.dten3 img {
+    width: 379px;
+    height: 318px;
+    padding-left: 7.5px;
+    
+}
+
 .home_features img{
     display: block;   
 }
 /*.home_features下面 包含文字和图片*/
 .home_features{
-    background-color: #f7f7f7;
-    position: relative;
+    background-color: #f7f7f7; 
     text-align: center;
-    widows: 1500px;
-    height: 1000px
+    height: 643px;
+    margin-top: 16px;   
+    padding-top: 1px;
+    padding-bottom: 30px;   
 }
-
+.home_features .vline{
+    width: 86px;
+    height: 7px;
+    background: green;
+    margin: 124px auto 0;
+}
 /*图片部分的设置*/
 .home_features  img{
-    position: absolute;
     width: 860px;
     height: 419px;
-    display: inline-block;
+    margin: 0 auto;
+    display: block;
     text-align: center;
-    margin-top: 50px;
+    
 }
 /*文字部分的设置*/
 .home_features .hf_p{
-    position: absolute;/*相对定位*/
     color: #3b3b3b;
     font-size: 22px;
     text-align: center;
-    top: 30px;
+    margin-top: 30px;
 }
 .home_features .hf_f{
     position: absolute;/*相对定位*/
@@ -134,4 +151,18 @@ a {
     top: 3.38rem;
     margin-left: 4.35rem;
     width: 2rem;
+}
+/*设置home_app*/
+.home_app .vline{
+    width: 86px;
+    height: 7px;
+    background: green;
+}
+.home_app .smartphone .imgsmart{
+    width:63px;
+    height: 84px
+}
+.home_app .homeapp .app1{
+    width: 1200px;
+    height: 741px;
 }
